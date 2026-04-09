@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Directory from '../components/Directory.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={site.title} description={site.description}>
+  <main class="page">
+
+    <h1 class="motto">{site.motto}</h1>
+    <p class="sub">{site.bio}</p>
+
+    <Directory />
+  </main>
+</BaseLayout>
+
+<style>
+  .page {
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr;
+    column-gap: var(--sp-block-md);
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 24px;
+    padding-top: var(--sp-block);
+  }
+  .motto {
+    grid-column: 1 / -1;
+    font-family: var(--font-pixel);
+    font-weight: 400;
+    font-size: var(--type-xl);
+    line-height: var(--lh-tight);
+    margin-bottom: var(--sp-element);
+  }
+  .sub {
+    grid-column: 1 / 3;
+    font-size: var(--type-base);
+    line-height: var(--lh-normal);
+    margin-bottom: var(--sp-section);
+  }
+  @media (max-width: 768px) {
+    .page {
+      grid-template-columns: 1fr 1fr;
+    }
+    .sub {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

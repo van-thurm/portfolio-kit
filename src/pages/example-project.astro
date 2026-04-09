@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/case-study.css';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`example project -- ${site.title}`} doodle={false} caseStudy="example project">
+
+<header class="page-header">
+  <div class="content">
+    <h1 class="cs-title">example project</h1>
+  </div>
+</header>
+
+<main>
+  <section class="cs-section">
+    <div class="content">
+      <p class="body-text">Side projects use BaseLayout directly instead of CaseStudyLayout. The format is shorter and more casual -- a description, some screenshots, and links.</p>
+      <p class="body-text" style="margin-top: var(--sp-snug)">Write a paragraph or two about what this project is and why you made it. What problem does it solve, or what itch does it scratch? Keep it conversational.</p>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="content">
+      <h2 class="cs-h2">what it does</h2>
+      <p class="body-text">Describe the functionality. What does someone experience when they use it? Be concrete -- "it does X when you Y" is better than "it provides a seamless experience."</p>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="content">
+      <h2 class="cs-h2">links</h2>
+      <ul class="project-links">
+        <li class="project-link-item">
+          <span class="project-link-label">repo</span>
+          <a href="https://github.com/yourname/project" target="_blank" rel="noopener" class="project-link">github.com/yourname/project</a>
+        </li>
+        <li class="project-link-item">
+          <span class="project-link-label">live</span>
+          <a href="https://example.com" target="_blank" rel="noopener" class="project-link">example.com</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-wrap">
+    <a href="/" class="cs-back">← back to work</a>
+    <div class="cs-footer-brand">
+      <span>{site.footer}</span>
+    </div>
+  </div>
+</footer>
+
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import DoodleTool from '../components/DoodleTool.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  doodle?: boolean;
+  caseStudy?: string;
+}
+const { title = site.title, description, doodle = true, caseStudy } = Astro.props;
+const canonical = site.url ? `${site.url}${Astro.url.pathname}` : Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content={caseStudy ? 'article' : 'website'} />
+  <meta property="og:site_name" content={site.title} />
+  {description && <meta property="og:description" content={description} />}
+  <meta name="twitter:card" content="summary" />
+  <ClientRouter />
+  <meta name="twitter:title" content={title} />
+  <script is:inline>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteHeader title={caseStudy} />
+  <slot />
+  {doodle && <DoodleTool />}
+  <script>
+    document.querySelectorAll<HTMLElement>('.cs-meta-tags').forEach(container => {
+      const tags = Array.from(container.querySelectorAll<HTMLElement>('.cs-tag'));
+      if (!tags.length) return;
+
+      let moreBtn: HTMLButtonElement | null = null;
+
+      function update() {
+        tags.forEach(t => { t.style.display = ''; });
+        if (moreBtn) { moreBtn.remove(); moreBtn = null; }
+        container.style.flexWrap = '';
+        container.style.overflow = '';
+
+        const containerRight = container.getBoundingClientRect().right;
+        const overflowing = tags.filter(t => t.getBoundingClientRect().right > containerRight + 1);
+        if (overflowing.length === 0) return;
+
+        moreBtn = document.createElement('button');
+        moreBtn.className = 'cs-tag-more';
+        container.appendChild(moreBtn);
+
+        let hidden = 0;
+        for (let i = tags.length - 1; i >= 0; i--) {
+          tags[i].style.display = 'none';
+          hidden++;
+          moreBtn.textContent = `+${hidden}`;
+          if (moreBtn.getBoundingClientRect().right <= containerRight + 1) break;
+        }
+
+        moreBtn.addEventListener('click', () => {
+          tags.forEach(t => { t.style.display = ''; });
+          container.style.flexWrap = 'wrap';
+          container.style.overflow = 'visible';
+          if (moreBtn) { moreBtn.remove(); moreBtn = null; }
+        });
+      }
+
+      update();
+      window.addEventListener('resize', () => requestAnimationFrame(update));
+    });
+  </script>
+</body>
+</html>

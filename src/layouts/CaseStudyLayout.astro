@@ -1,0 +1,51 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import '../styles/case-study.css';
+import { site } from '../data/site';
+
+interface Props {
+  caseStudy: string;
+  description?: string;
+  context: string;
+  hero: string;
+  tags: Array<{ label: string; slug: string }>;
+}
+
+const { caseStudy, description, context, hero, tags } = Astro.props;
+const title = `${caseStudy} -- ${site.title}`;
+---
+
+<BaseLayout title={title} description={description} doodle={false} caseStudy={caseStudy}>
+
+<header class="page-header">
+  <div class="cs-wrap">
+    <h1 class="cs-title">{caseStudy}</h1>
+    <div class="cs-meta">
+      <span class="cs-meta-context">{context}</span>
+      <div class="cs-meta-tags">
+        {tags.map(tag => (
+          <a href={`/tag/${tag.slug}`} class="cs-tag">{tag.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="cs-hero">
+  <div class="cs-wrap">
+    <p class="hero-text">{hero}</p>
+  </div>
+</section>
+
+<slot />
+
+<footer class="cs-footer">
+  <div class="cs-wrap">
+    <a href="/" class="cs-back">← back to work</a>
+    <div class="cs-footer-brand">
+      <span>{site.footer}</span>
+    </div>
+  </div>
+</footer>
+
+</BaseLayout>

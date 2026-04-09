@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/case-study.css';
+import { site } from '../data/site';
+
+const contacts = [
+  site.social.email && { label: 'email', href: `mailto:${site.social.email}`, display: site.social.email },
+  site.social.linkedin && { label: 'linkedin', href: site.social.linkedin, display: site.social.linkedin.replace('https://www.linkedin.com/in/', '') },
+  site.social.github && { label: 'github', href: site.social.github, display: site.social.github.replace('https://github.com/', '') },
+].filter(Boolean) as Array<{ label: string; href: string; display: string }>;
+---
+
+<BaseLayout title={`contact -- ${site.title}`} doodle={false} caseStudy="contact">
+
+<header class="page-header">
+  <div class="content">
+    <h1 class="cs-title">contact</h1>
+  </div>
+</header>
+
+<main>
+  <section class="cs-section">
+    <div class="content">
+      <ul class="contact-list">
+        {contacts.map(c => (
+          <li class="contact-item">
+            <span class="contact-label">{c.label}</span>
+            <a href={c.href} class="contact-link" target="_blank" rel="noopener">{c.display}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-wrap">
+    <a href="/" class="cs-back">← back to work</a>
+    <div class="cs-footer-brand">
+      <span>{site.footer}</span>
+    </div>
+  </div>
+</footer>
+
+</BaseLayout>
+
+<style>
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-block-sm);
+    padding: var(--sp-snug) 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+
+  .contact-label {
+    font-family: var(--font-pixel);
+    font-size: var(--type-sm);
+    letter-spacing: 0.08em;
+    color: var(--spot);
+    min-width: 72px;
+  }
+
+  .contact-link {
+    font-family: var(--font-body);
+    font-size: var(--type-base);
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .contact-link:hover {
+    color: var(--spot);
+  }
+</style>

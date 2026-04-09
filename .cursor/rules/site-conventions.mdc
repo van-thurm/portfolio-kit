@@ -1,0 +1,95 @@
+# Site Conventions
+
+This is an Astro portfolio site. Follow these conventions when creating or editing content.
+
+## File structure
+
+```
+src/
+  data/
+    site.ts         ← central config (name, URL, social links, motto, bio)
+    entries.ts      ← directory listing of all work (case studies + side projects)
+    writing.ts      ← external writing links
+    bookmarks.ts    ← bookmarks and featured quote
+  layouts/
+    BaseLayout.astro      ← shell: meta tags, theme toggle, fonts, doodle tool
+    CaseStudyLayout.astro ← case study wrapper: hero, tags, footer (extends BaseLayout)
+  components/
+    SiteHeader.astro ← fixed header with scroll-aware title reveal
+    Directory.astro  ← three-column home listing (case studies / side projects / social)
+    DoodleTool.astro ← opt-in doodle overlay (included by default via BaseLayout)
+  styles/
+    global.css      ← design tokens, type scale, spacing, dark mode, utilities
+    case-study.css  ← all case study component styles (sections, stats, photos, grids)
+  pages/
+    index.astro     ← home page (uses Directory)
+    contact.astro   ← contact page
+    tag/[tag].astro ← tag index (auto-generated from entries.ts tags)
+    *.astro         ← each case study or project is a standalone page file
+```
+
+## Adding a new case study
+
+1. Create `src/pages/your-project.astro`
+2. Use CaseStudyLayout with props: caseStudy, description, context, hero, tags
+3. Structure content with these sections (in order):
+   - Brief (`.brief-facts`, `.brief-role`)
+   - Photos (`.cs-inline-photo` with `.photo-grid`)
+   - Work sections (`.cs-section` with `.cs-h2`)
+   - Outcomes (`.stat-row`, `.problem-points`)
+4. Add an entry to `src/data/entries.ts` with the matching href
+5. Tags use slug format: `{ label: 'design systems', slug: 'design-systems' }`
+
+## Adding a side project
+
+1. Create `src/pages/your-project.astro`
+2. Use BaseLayout directly (not CaseStudyLayout)
+3. Set `doodle={false}` and `caseStudy="project name"` on BaseLayout
+4. Import `../styles/case-study.css` for shared component styles
+5. Use `.content` wrapper instead of `.cs-wrap`
+6. Include a `.cs-footer` with back link and `site.footer`
+7. Add an entry to `src/data/entries.ts`
+
+## Design tokens (from global.css)
+
+Colors: `--paper`, `--ink`, `--spot`, `--muted`, `--border`, `--spot-bg`, `--ink-bg`
+Fonts: `--font-pixel` (GeistPixelLine), `--font-body` (Libre Franklin), `--font-mono`
+Spacing: `--sp-section` (64px) > `--sp-block` (48px) > `--sp-block-md` (32px) > `--sp-block-sm` (24px) > `--sp-element` (16px) > `--sp-snug` (12px) > `--sp-tight` (8px) > `--sp-micro` (4px)
+Type scale: `--type-hero` (48px) > `--type-xl` (28px) > `--type-lg` (20px) > `--type-base` (14px) > `--type-sm` (12px) > `--type-xs` (10px)
+Content width: `--content-max` (640px)
+
+## CSS class patterns
+
+- `.cs-wrap` -- max-width content container (case study pages)
+- `.content` -- max-width content container (project/simple pages)
+- `.cs-section` -- vertical padding block
+- `.cs-h2` -- section heading (pixel font, --type-lg)
+- `.cs-tag` -- tag pill
+- `.stat-row` / `.stat` -- metric grid (default 3 columns, use `.stat-row--four` for 4)
+- `.two-col` / `.col` -- side-by-side layout
+- `.problem-points` / `.problem-point` -- stacked outcome items (add `.problem-point--divided` for borders)
+- `.photo` / `.photo-grid` -- image figures (default 3:2 crop, use `.photo--native` to skip)
+- `.brief-role` / `.role-list` -- role/shipped metadata
+- `.project-links` / `.project-link-item` -- external link list
+- `.inline-link` -- inline text link (spot color)
+- `.body-text` -- standard paragraph
+- `.callout` -- pixel font accent text
+
+## Naming and tone
+
+- All lowercase. Page titles, headers, section labels, navigation text.
+- No periods in headings or labels.
+- Pixel font (GeistPixelLine) for headings, labels, tags, navigation, and the header name.
+- Body font (Libre Franklin, weight 300) for paragraph text.
+- Direct, conversational tone. No filler words or marketing language.
+- Use the slop-scrub-humanizer skill when writing any prose content.
+
+## Config-driven values
+
+All personal info lives in `src/data/site.ts`. Components import from there.
+Never hardcode names, URLs, or social links in layout or component files.
+
+## Static output
+
+The site builds as static HTML. No server adapter, no SSR, no middleware.
+Use `getStaticPaths()` for any dynamic routes (e.g., tag pages).

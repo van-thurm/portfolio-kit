@@ -1,0 +1,115 @@
+---
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+  caseStudy="example case study"
+  description="a representative case study showing the layout and section structure"
+  context="your company · 2025"
+  hero="the one-line hook that frames the whole project."
+  tags={[
+    { label: 'design systems', slug: 'design-systems' },
+    { label: 'program design', slug: 'program-design' },
+  ]}
+>
+
+<!-- ═══════════════ 01: THE BRIEF ═══════════════ -->
+<section class="cs-section">
+  <div class="cs-wrap">
+    <p class="brief-facts">Start with context. What was happening at the company or on the team that made this project necessary? Ground the reader in the situation before explaining what you did. Two or three sentences is enough.</p>
+
+    <p class="brief-facts">Then add a second paragraph with more specifics. What were the constraints? What made this problem hard or interesting? <strong>Bold a sentence that captures the core tension.</strong></p>
+
+    <div class="brief-role">
+      <span class="role-label">/ role</span>
+      <ul class="role-list">
+        <li>describe your scope and ownership</li>
+        <li>note if this was 0→1 or an iteration</li>
+        <li>mention who you worked with</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 02: THE WORK ═══════════════ -->
+<section class="cs-section">
+  <div class="cs-wrap">
+    <h2 class="cs-h2">what we did</h2>
+
+    <div class="two-col">
+      <div class="col">
+        <div class="col-label">/ track one</div>
+        <p>Describe the first workstream or approach. What did you try, build, or change? Be specific about artifacts and decisions.</p>
+      </div>
+      <div class="col">
+        <div class="col-label">/ track two</div>
+        <p>Describe the second workstream. The two-column layout works well for parallel efforts, before/after comparisons, or problem/solution pairs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 03: OUTCOMES ═══════════════ -->
+<section class="cs-section">
+  <div class="cs-wrap">
+    <h2 class="cs-h2">outcomes</h2>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-num">42%</span>
+        <span class="stat-label">improvement in key metric</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">12</span>
+        <span class="stat-label">teams affected</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3mo</span>
+        <span class="stat-label">from kickoff to launch</span>
+      </div>
+    </div>
+
+    <div class="problem-points">
+      <div class="problem-point problem-point--divided">
+        <span class="problem-label">/ first outcome</span>
+        <p>Explain the result and why it mattered. Connect it back to the problem you described in the brief. Numbers are good but not required -- qualitative shifts count too.</p>
+      </div>
+      <div class="problem-point problem-point--divided">
+        <span class="problem-label">/ second outcome</span>
+        <p>Another result. Did something change about how the team works? Did adoption grow? Did a pattern emerge that outlasted the project?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 04: LEARNINGS ═══════════════ -->
+<section class="cs-section">
+  <div class="cs-wrap">
+    <h2 class="cs-h2">what I learned</h2>
+    <p class="body-text">Close with a reflection. What would you do differently? What surprised you? What did this project teach you about your craft? This section is what separates a case study from a project summary.</p>
+  </div>
+</section>
+
+</CaseStudyLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.photo--expandable').forEach(fig => {
+    const img = fig.querySelector('img');
+    if (!img) return;
+    fig.setAttribute('tabindex', '0');
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('aria-label', `Expand photo: ${img.alt}`);
+    const dlg = document.createElement('dialog');
+    dlg.className = 'photo-dialog';
+    const dlgImg = document.createElement('img');
+    dlgImg.src = img.src;
+    dlgImg.alt = img.alt;
+    dlg.appendChild(dlgImg);
+    document.body.appendChild(dlg);
+    fig.addEventListener('click', () => dlg.showModal());
+    fig.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dlg.showModal(); }
+    });
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  });
+</script>

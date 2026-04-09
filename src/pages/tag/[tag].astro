@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/case-study.css';
+import { entries, tagSlug } from '../../data/entries';
+import { site } from '../../data/site';
+
+export function getStaticPaths() {
+  const allTags = [...new Set(entries.flatMap(e => e.tags ?? []))];
+  return allTags.map(t => ({
+    params: { tag: tagSlug(t) },
+    props: { displayName: t },
+  }));
+}
+
+const { tag } = Astro.params;
+const { displayName } = Astro.props;
+
+const matched = entries.filter(e =>
+  e.tags?.some(t => tagSlug(t) === tag)
+);
+---
+
+<BaseLayout title={`${displayName} — ${site.title}`} description={`work tagged ${displayName}`}>
+  <header class="page-header">
+    <div class="cs-wrap">
+      <a href="/" class="cs-back" id="tag-back-link">← back</a>
+      <h1 class="cs-title">{displayName}</h1>
+    </div>
+  </header>
+
+  <main class="tag-page">
+    <div class="cs-wrap">
+      {matched.length > 0 ? (
+        <ul class="tag-list">
+          {matched.map(e => (
+            <li>
+              {e.href ? (
+                <a href={e.href} class="tag-entry" target={e.external ? '_blank' : undefined} rel={e.external ? 'noopener' : undefined}>
+                  <span class="tag-entry-title">{e.title}</span>
+                  {e.company && <span class="tag-entry-meta">{e.company}{e.yearDisplay ? ` · ${e.yearDisplay}` : ` · ${e.year}`}</span>}
+                </a>
+              ) : (
+                <span class="tag-entry tag-entry--soon">
+                  <span class="tag-entry-title">{e.title}</span>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="tag-empty">no work tagged "{displayName}" yet.</p>
+      )}
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  const backLink = document.getElementById('tag-back-link');
+  if (backLink && document.referrer && new URL(document.referrer).origin === window.location.origin) {
+    backLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      history.back();
+    });
+  }
+</script>
+
+<style>
+  .tag-page {
+    padding: 0 0 120px;
+  }
+
+  .tag-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-micro);
+  }
+
+  .tag-entry {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-snug);
+    padding: var(--sp-tight) 0;
+    transition: color 0.15s;
+    width: fit-content;
+    position: relative;
+  }
+  .tag-entry:not(.tag-entry--soon):hover {
+    color: var(--spot);
+  }
+
+  .tag-entry-title {
+    font-size: var(--type-base);
+    font-weight: 400;
+  }
+
+  .tag-entry-meta {
+    font-size: var(--type-sm);
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .tag-entry:not(.tag-entry--soon)::after {
+    content: '\2192';
+    position: absolute;
+    right: -24px;
+    top: 50%;
+    font-size: var(--type-base);
+    font-weight: 700;
+    color: var(--spot);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(calc(-1 * var(--sp-micro))) translateY(-50%);
+  }
+  .tag-entry:not(.tag-entry--soon):hover::after {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+
+  .tag-empty {
+    font-size: var(--type-base);
+    color: var(--muted);
+  }
+</style>
