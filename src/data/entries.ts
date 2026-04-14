@@ -20,12 +20,13 @@ export const entries: DirectoryEntry[] = [
     section: 'case-studies',
     year: 2025,
     company: 'parallax lab',
-    tags: ['design systems', 'program design'],
+    tags: ['deep field', 'wayfinding'],
   },
   {
     title: 'quiet instruments',
     href: '/example-project',
     section: 'side-projects',
     year: 2025,
+    tags: ['tools', 'observation'],
   },
 ];

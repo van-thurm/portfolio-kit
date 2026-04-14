@@ -9,29 +9,12 @@ const { title = '' } = Astro.props;
 
 <header class="site-header" id="site-header">
   <div class="site-header-inner">
-    <a href="/" class="site-header-name">{site.name}</a>
+    <a href={import.meta.env.BASE_URL} class="site-header-name">{site.name}</a>
     <div class="site-header-right">
       <span class="site-header-title" id="site-header-title">{title}</span>
-      <button class="site-header-toggle" id="site-header-toggle" aria-label="Toggle theme">
-        <span class="toggle-opt toggle-opt--sun">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <circle cx="8" cy="8" r="2.5"/>
-            <line x1="8" y1="1" x2="8" y2="3"/>
-            <line x1="8" y1="13" x2="8" y2="15"/>
-            <line x1="1" y1="8" x2="3" y2="8"/>
-            <line x1="13" y1="8" x2="15" y2="8"/>
-            <line x1="3.1" y1="3.1" x2="4.5" y2="4.5"/>
-            <line x1="11.5" y1="11.5" x2="12.9" y2="12.9"/>
-            <line x1="3.1" y1="12.9" x2="4.5" y2="11.5"/>
-            <line x1="11.5" y1="4.5" x2="12.9" y2="3.1"/>
-          </svg>
-        </span>
-        <span class="toggle-opt toggle-opt--moon">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path d="M14 8.5A6 6 0 1 1 7.5 2a4.7 4.7 0 0 0 6.5 6.5z"/>
-            <circle cx="11.5" cy="3" r="0.7"/>
-            <circle cx="13.5" cy="5.5" r="0.5"/>
-          </svg>
+      <button class="theme-toggle" id="site-header-toggle" aria-label="Toggle theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-dot"></span>
         </span>
       </button>
     </div>
@@ -99,15 +82,39 @@ const { title = '' } = Astro.props;
     color: var(--spot);
   }
 
-  .site-header-toggle {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-tight);
+  .theme-toggle {
     background: none;
     border: none;
-    padding: 0;
+    padding: 4px;
     cursor: pointer;
     user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .theme-toggle-track {
+    width: 28px;
+    height: 14px;
+    border-radius: 7px;
+    border: 1.5px solid var(--border);
+    position: relative;
+    display: block;
+  }
+
+  .theme-toggle-dot {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--spot);
+    transition: left 0.2s ease;
+  }
+
+  html[data-theme="dark"] .theme-toggle-dot {
+    left: 14.5px;
+    background: var(--spot);
   }
 
 </style>

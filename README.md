@@ -4,7 +4,7 @@ An AI-native portfolio template. An Astro site paired with Cursor skills and age
 
 ## design
 
-Pixel font headings, light body type, warm accent color, paper-textured background, full dark mode. Restrained on purpose -- the content is the design.
+Clash Grotesk headings, Libre Franklin body, gold accent color (`#AB8B09` light / `#F4DB78` dark), paper-textured background, full dark mode. Restrained on purpose -- the content is the design.
 
 ![Home page, dark mode](docs/home-dark.png)
 
@@ -86,7 +86,26 @@ npm run build    # outputs to dist/
 npm run preview  # local preview of the build
 ```
 
-Deploy the `dist/` folder to any static host: Vercel, Netlify, GitHub Pages, Cloudflare Pages, or just drag it into a file hosting service.
+### GitHub Pages (included)
+
+A workflow at `.github/workflows/deploy-pages.yml` deploys on every push to `main`. To enable it:
+
+1. Push your fork to GitHub.
+2. Go to **Settings → Pages** and set the source to **GitHub Actions**.
+3. In `astro.config.mjs`, set `site` and `base` to match your GitHub Pages URL:
+
+```js
+export default defineConfig({
+  site: 'https://yourusername.github.io',
+  base: '/portfolio-kit',
+});
+```
+
+If you deploy to a custom domain or root path (e.g. `myportfolio.com`), set `site` to your domain and remove the `base` line.
+
+### other hosts
+
+Deploy the `dist/` folder to Vercel, Netlify, Cloudflare Pages, or any static host. Remove the `base` from `astro.config.mjs` if deploying to a root domain.
 
 If you need server-side rendering (for auth, API routes, etc.), install an Astro adapter:
 
@@ -104,6 +123,10 @@ export default defineConfig({
   adapter: vercel(),
 });
 ```
+
+## fonts
+
+Display type uses [Clash Grotesk](https://www.fontshare.com/fonts/clash-grotesk) by Indian Type Foundry, distributed free via Fontshare. The woff2 files are self-hosted in `public/fonts/`. Body type is Libre Franklin from Google Fonts.
 
 ## philosophy
 

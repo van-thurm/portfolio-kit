@@ -24,7 +24,7 @@ const title = `${caseStudy} -- ${site.title}`;
       <span class="cs-meta-context">{context}</span>
       <div class="cs-meta-tags">
         {tags.map(tag => (
-          <a href={`/tag/${tag.slug}`} class="cs-tag">{tag.label}</a>
+          <a href={`${import.meta.env.BASE_URL}/tag/${tag.slug}`} class="cs-tag">{tag.label}</a>
         ))}
       </div>
     </div>
@@ -41,7 +41,7 @@ const title = `${caseStudy} -- ${site.title}`;
 
 <footer class="cs-footer">
   <div class="cs-wrap">
-    <a href="/" class="cs-back">← back to work</a>
+    <a href={import.meta.env.BASE_URL} class="cs-back">← back to work</a>
     <div class="cs-footer-brand">
       <span>{site.footer}</span>
     </div>

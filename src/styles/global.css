@@ -1,7 +1,15 @@
 @font-face {
-  font-family: 'GeistPixelLine';
-  src: url('/fonts/GeistPixel-Line.woff2') format('woff2');
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/ClashGrotesk-Regular.woff2') format('woff2');
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/ClashGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -9,17 +17,17 @@
 :root {
   --paper: #FDFDFA;
   --ink: #1A1A1A;
-  --spot: #D95030;
+  --spot: #AB8B09;
   --muted: rgba(26,26,26,0.65);
   --border: rgba(26,26,26,0.1);
-  --spot-bg: rgba(217,80,48,0.08);
-  --spot-bg-subtle: rgba(217,80,48,0.03);
+  --spot-bg: rgba(171,139,9,0.08);
+  --spot-bg-subtle: rgba(171,139,9,0.03);
   --ink-bg: rgba(26,26,26,0.04);
   --ink-bg-subtle: rgba(26,26,26,0.03);
   --overlay-bg: rgba(0, 0, 0, 0.92);
   --overlay-text: rgba(255, 255, 255, 0.7);
 
-  --font-pixel: 'GeistPixelLine', monospace;
+  --font-pixel: 'Clash Grotesk', sans-serif;
   --font-body: 'Libre Franklin', sans-serif;
   --font-mono: ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', monospace;
 
@@ -66,11 +74,11 @@
 html[data-theme="dark"] {
   --paper: #1A1A1A;
   --ink: #EDEDE8;
-  --spot: #E8734F;
+  --spot: #F4DB78;
   --muted: rgba(237,237,232,0.65);
   --border: rgba(237,237,232,0.12);
-  --spot-bg: rgba(232,115,79,0.1);
-  --spot-bg-subtle: rgba(232,115,79,0.05);
+  --spot-bg: rgba(244,219,120,0.1);
+  --spot-bg-subtle: rgba(244,219,120,0.05);
   --ink-bg: rgba(237,237,232,0.06);
   --ink-bg-subtle: rgba(237,237,232,0.04);
   --overlay-bg: rgba(0, 0, 0, 0.92);
@@ -135,28 +143,3 @@ code {
   letter-spacing: 0.03em;
 }
 
-.toggle-opt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-}
-
-.toggle-opt svg {
-  width: 14px;
-  height: 14px;
-}
-
-.toggle-opt--sun {
-  color: var(--ink);
-}
-.toggle-opt--moon {
-  color: var(--muted);
-}
-
-html[data-theme="dark"] .toggle-opt--sun {
-  color: var(--muted);
-}
-html[data-theme="dark"] .toggle-opt--moon {
-  color: var(--ink);
-}

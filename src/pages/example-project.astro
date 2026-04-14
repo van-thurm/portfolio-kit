@@ -7,28 +7,113 @@ import { site } from '../data/site';
 <BaseLayout title={`quiet instruments -- ${site.title}`} doodle={false} caseStudy="quiet instruments">
 
 <header class="page-header">
-  <div class="content">
+  <div class="cs-wrap">
     <h1 class="cs-title">quiet instruments</h1>
+    <div class="cs-meta">
+      <span class="cs-meta-context">side project · 2024 – present</span>
+      <div class="cs-meta-tags">
+        <a href={`${import.meta.env.BASE_URL}/tag/tools`} class="cs-tag">tools</a>
+        <a href={`${import.meta.env.BASE_URL}/tag/observation`} class="cs-tag">observation</a>
+      </div>
+    </div>
   </div>
 </header>
 
 <main>
+
   <section class="cs-section">
-    <div class="content">
-      <p class="body-text">Most measurement tools announce themselves. They beep, they flash, they demand calibration. I wanted to build something that just listened. Quiet instruments is a collection of small programs that sit in the background and record things nobody asked them to: how long a window stays open, how many times a cursor reverses direction, the interval between saves.</p>
-      <p class="body-text" style="margin-top: var(--sp-snug)">None of this data means anything on its own. But after a few weeks, patterns emerge that you can feel but couldn't name. The distance between intention and action has a shape. These instruments draw it.</p>
+    <div class="cs-wrap">
+      <p class="brief-facts">Most measurement tools announce themselves. They beep, they flash, they demand calibration. I wanted to build something that just listened -- a set of small programs that sit in the background and record things nobody asked them to: how long a window stays open, how many times a cursor reverses direction, the interval between saves.</p>
+      <p class="brief-facts">None of this data means anything on its own. But after a few weeks, patterns emerge that you can feel but couldn't name. The distance between intention and action has a shape. These instruments draw it.</p>
     </div>
   </section>
 
   <section class="cs-section">
-    <div class="content">
-      <h2 class="cs-h2">what it does</h2>
-      <p class="body-text">Run <code>qi start</code> and forget about it. It watches your working session and writes a daily log -- plain text, no database, nothing phoning home. After seven days you can run <code>qi reflect</code> and it generates a one-page summary of your rhythms. When you started. When you paused. Where you hesitated. The report is yours and it never leaves your machine.</p>
+    <div class="cs-wrap">
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">14</span>
+          <span class="stat-label">discrete instruments</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2,300</span>
+          <span class="stat-label">sessions observed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">~0.4s</span>
+          <span class="stat-label">median observation latency</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="cs-section">
-    <div class="content">
+    <div class="cs-wrap">
+      <h2 class="cs-h2">how it works</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="seq-num">01</span>
+          <div class="step-content">
+            <span class="step-name">start listening</span>
+            <span class="step-desc">Run <code>qi start</code> at the beginning of a session. The process backgrounds itself and watches without interrupting.</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="seq-num">02</span>
+          <div class="step-content">
+            <span class="step-name">accumulate signal</span>
+            <span class="step-desc">Each instrument writes to its own plain-text log. No database, no network calls. The files are human-readable if you want to look, but that is not the point.</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="seq-num">03</span>
+          <div class="step-content">
+            <span class="step-name">reflect</span>
+            <span class="step-desc">After seven days, run <code>qi reflect</code>. It reads every log and generates a one-page summary of your rhythms. When you started. When you paused. Where you hesitated.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-wrap">
+      <h2 class="cs-h2">what it watches</h2>
+      <div class="two-col">
+        <div class="col">
+          <div class="col-label">/ what it records</div>
+          <p>Window focus duration. Cursor reversals. Save intervals. Tab switches. Scroll velocity over time. The length of pauses between keystrokes when you stop mid-sentence. None of these are productivity metrics. They are tempo.</p>
+        </div>
+        <div class="col">
+          <div class="col-label">/ what it ignores</div>
+          <p>Content. It never reads what you type, what files you open, or what is on your screen. The instruments care about motion, not meaning. You could be writing a novel or staring at a blank terminal and the logs would look the same -- which is the point.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-wrap">
+      <h2 class="cs-h2">findings</h2>
+      <div class="problem-points">
+        <div class="problem-point problem-point--divided">
+          <span class="problem-label">/ the Tuesday pattern</span>
+          <p>Across 40+ weeks of data, cursor reversal rate peaks on Tuesdays. Not Mondays (which feel harder) and not Fridays (which feel scattered). Tuesdays are where hesitation actually lives. The subjective experience of difficulty and the measured rhythm of it do not overlap the way you expect.</p>
+        </div>
+        <div class="problem-point problem-point--divided">
+          <span class="problem-label">/ the 4-second gap</span>
+          <p>The median pause before a save is 4.1 seconds. But the distribution is bimodal -- either you save within a second of your last keystroke, or you wait 12 or more. The mid-range barely exists. Saving is either reflexive or deliberate, almost never casual.</p>
+        </div>
+        <div class="problem-point problem-point--divided">
+          <span class="problem-label">/ scroll as thought</span>
+          <p>Scroll velocity correlates with nothing obvious -- not time of day, not day of week, not session length. It appears to be the one metric that is genuinely random, or at least genuinely private. Some behaviors resist pattern even when everything around them converges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-wrap">
       <h2 class="cs-h2">links</h2>
       <ul class="project-links">
         <li class="project-link-item">
@@ -39,14 +124,19 @@ import { site } from '../data/site';
           <span class="project-link-label">npm</span>
           <a href="https://example.com" target="_blank" rel="noopener" class="project-link">npmjs.com/package/quiet-instruments</a>
         </li>
+        <li class="project-link-item">
+          <span class="project-link-label">license</span>
+          <a href="https://example.com" target="_blank" rel="noopener" class="project-link">MIT</a>
+        </li>
       </ul>
     </div>
   </section>
+
 </main>
 
 <footer class="cs-footer">
   <div class="cs-wrap">
-    <a href="/" class="cs-back">← back to work</a>
+    <a href={import.meta.env.BASE_URL} class="cs-back">← back to work</a>
     <div class="cs-footer-brand">
       <span>{site.footer}</span>
     </div>
