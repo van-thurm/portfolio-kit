@@ -1,20 +1,26 @@
 # portfolio kit
 
-An AI-native portfolio template. An Astro site paired with Cursor skills and agent context that work together out of the box. Fork it, open it in Cursor, and the AI already knows how the site works, how to write case studies, and how to catch bad copy.
+ai-native portfolio template and toolkit. 
+
+this is a flexible, content-driven minimalist astro site template paired with skills and agent context that work together out of the box. fork it, open it in a project with your agent (i'd recommend cursor or claude), and the ai already knows how the site works, can help you write case studies, and does a pretty good job of holding back the slop. 
+
+product managers, design operations, product operations, devex, program managers, production managers ...i made this for you. the case study skill is designed to work with atypical content, data and storytelling.
+
+**[live demo →](https://van-thurm.github.io/portfolio-kit/)**
 
 ## design
 
-Clash Grotesk headings, Libre Franklin body, gold accent color (`#AB8B09` light / `#F4DB78` dark), paper-textured background, full dark mode. Restrained on purpose -- the content is the design.
+clash grotesk headings, libre franklin body, or update with your own design ideas - easy to swap in new options for things like small accents, light/dark mode and the doodle interaction specs. 
 
-![Home page, dark mode](docs/home-dark.png)
+visually restrained so that your content keeps the reader's full attention. 
 
-![Home page, light mode](docs/home-light.png)
+<p>
+  <img src="docs/home-dark.png" alt="home page, dark mode" width="32%">
+  <img src="docs/home-light.png" alt="home page, light mode" width="32%">
+  <img src="docs/case-study-scroll.gif" alt="case study page scroll" width="32%">
+</p>
 
-Case study layout with hero text, tag system, two-column sections, and stat rows:
-
-![Case study hero](docs/case-study-dark.png)
-
-![Case study detail with stats](docs/case-study-detail.png)
+case study layout with hero text, tag system, two-column sections, and stat rows.
 
 ## quickstart
 
@@ -24,19 +30,19 @@ npm install
 npm run dev
 ```
 
-Open `src/data/site.ts` and replace the placeholder values with your own name, links, and bio. The rest of the site pulls from this file.
+open `src/data/site.ts` and replace the placeholder values with your own name, links, and bio.
 
 ## customize
 
-**Identity**: edit `src/data/site.ts` -- name, URL, motto, bio, social links, footer text. Every component reads from here.
+**identity**: edit `src/data/site.ts` -- name, URL, motto, bio, social links, footer text. every component reads from here.
 
-**Add a case study**: create a new `.astro` file in `src/pages/`, use `CaseStudyLayout`, and add a matching entry to `src/data/entries.ts`. Or tell the AI "add a new case study about [project]" and it will scaffold the right file with the right structure.
+**add a case study**: create a new `.astro` file in `src/pages/`, use `CaseStudyLayout`, and add a matching entry to `src/data/entries.ts`. Or tell the ai "add a new case study about [project]" and it will scaffold the right file with the right structure.
 
-**Add a side project**: same idea, but use `BaseLayout` directly. See `example-project.astro` for the pattern.
+**add a side project**: same idea, but use `BaseLayout` directly. See `example-project.astro` for the pattern.
 
-**Styling**: the design system lives in `src/styles/global.css` (tokens, type, spacing, dark mode) and `src/styles/case-study.css` (all case study components). Change the `--spot` color to shift the accent across the whole site.
+**styling**: the design system lives in `src/styles/global.css` (tokens, type, spacing, dark mode) and `src/styles/case-study.css` (all case study components). change the `--spot` color to shift the accent across the whole site. 
 
-**Doodle tool**: the drawing overlay is included by default on pages that use BaseLayout. Pass `doodle={false}` to disable it on any page.
+**doodle mode tool**: the drawing overlay is included by default on pages that use BaseLayout. Pass `doodle={false}` to disable it on any page.
 
 ## file structure
 
@@ -67,32 +73,32 @@ src/
 
 ## bundled skills
 
-These live in `.cursor/skills/` and activate automatically when you open the project in Cursor.
+These live in `.cursor/skills/` and activate automatically when you open the project in cursor.
 
-**portfolio-case-study** -- structured intake process for writing case studies. Interviews you about the project, extracts metrics, and drafts content using patterns from designers hired at top-tier companies. Three modes: intake + draft, review, and refine.
+**portfolio-case-study** -- structured intake process for writing case studies. interviews you about the project, extracts metrics, and drafts content using patterns from designers hired at top-tier companies. three modes: intake + draft, review, and refine.
 
-**slop-scrub-humanizer** -- mandatory audit that catches AI writing patterns before they ship. 22 construction bans, a vocabulary kill list, and a 14-step review process. Runs against any prose the AI generates for the site.
+**slop-scrub-humanizer** -- mandatory audit that catches ai writing patterns before they ship. 22 construction bans, a vocabulary kill list, and a 14-step review process. runs against any prose the ai generates for the site. 
 
 ## agent context
 
-`.cursor/rules/site-conventions.mdc` teaches the AI the file structure, naming patterns, design tokens, CSS classes, and the site's tone (lowercase, direct, no filler). This is what makes the AI productive from the first prompt instead of guessing at conventions.
+`.cursor/rules/site-conventions.mdc` teaches the ai the file structure, naming patterns, design tokens, CSS classes, and the site's tone (lowercase, direct, no filler). this is what makes the ai productive from the first prompt instead of guessing at conventions.
 
 ## deployment
 
-The site builds as static HTML and works anywhere:
+the site builds as static HTML and works anywhere:
 
 ```bash
 npm run build    # outputs to dist/
 npm run preview  # local preview of the build
 ```
 
-### GitHub Pages (included)
+### gitHub pages (included)
 
-A workflow at `.github/workflows/deploy-pages.yml` deploys on every push to `main`. To enable it:
+a workflow at `.github/workflows/deploy-pages.yml` deploys on every push to `main`. to enable it:
 
-1. Push your fork to GitHub.
-2. Go to **Settings → Pages** and set the source to **GitHub Actions**.
-3. In `astro.config.mjs`, set `site` and `base` to match your GitHub Pages URL:
+1. push your fork to gitHub.
+2. go to **settings → pages** and set the source to **gitHub actions**.
+3. in `astro.config.mjs`, set `site` and `base` to match your gitHub pages URL:
 
 ```js
 export default defineConfig({
@@ -101,19 +107,19 @@ export default defineConfig({
 });
 ```
 
-If you deploy to a custom domain or root path (e.g. `myportfolio.com`), set `site` to your domain and remove the `base` line.
+if you deploy to a custom domain or root path (e.g. `myportfolio.com`), set `site` to your domain and remove the `base` line.
 
 ### other hosts
 
-Deploy the `dist/` folder to Vercel, Netlify, Cloudflare Pages, or any static host. Remove the `base` from `astro.config.mjs` if deploying to a root domain.
+deploy the `dist/` folder to vercel, netlify, cloudflare pages, or any static host. Remove the `base` from `astro.config.mjs` if deploying to a root domain.
 
-If you need server-side rendering (for auth, API routes, etc.), install an Astro adapter:
+if you need server-side rendering (for auth, API routes, etc.), install an astro adapter:
 
 ```bash
 npm install @astrojs/vercel   # or @astrojs/netlify, @astrojs/node
 ```
 
-Then update `astro.config.mjs`:
+then update `astro.config.mjs`:
 
 ```js
 import vercel from '@astrojs/vercel';
@@ -126,8 +132,8 @@ export default defineConfig({
 
 ## fonts
 
-Display type uses [Clash Grotesk](https://www.fontshare.com/fonts/clash-grotesk) by Indian Type Foundry, distributed free via Fontshare. The woff2 files are self-hosted in `public/fonts/`. Body type is Libre Franklin from Google Fonts.
+display type uses [Clash Grotesk](https://www.fontshare.com/fonts/clash-grotesk) by Indian Type Foundry, distributed free via Fontshare. The woff2 files are self-hosted in `public/fonts/`. body type is Libre Franklin from google fonts.
 
 ## philosophy
 
-This template assumes the person using it has things to say and an AI that can help them say it well. The skills and rules aren't guardrails for bad writers; they're tools for busy ones. The site structure handles the architecture so you can focus on the content. The AI handles the first draft so you can focus on making it yours.
+this template and the skills still require good content to get good results and a good portfolio still requires time and care. the site structure handles the architecture so you can focus on the content - don't rush that part! The AI handles the first draft so you can focus on making it **yours.** 
