@@ -3,29 +3,29 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 ---
 
 <CaseStudyLayout
-  caseStudy="example case study"
-  description="a representative case study showing the layout and section structure"
-  context="your company · 2025"
-  hero="the one-line hook that frames the whole project."
+  caseStudy="the cartography project"
+  description="remapping what we thought we knew about the deep field"
+  context="parallax lab · 2025"
+  hero="the map is not the territory, but without a map nobody leaves the building."
   tags={[
-    { label: 'design systems', slug: 'design-systems' },
-    { label: 'program design', slug: 'program-design' },
+    { label: 'deep field', slug: 'design-systems' },
+    { label: 'wayfinding', slug: 'program-design' },
   ]}
 >
 
 <!-- ═══════════════ 01: THE BRIEF ═══════════════ -->
 <section class="cs-section">
   <div class="cs-wrap">
-    <p class="brief-facts">Start with context. What was happening at the company or on the team that made this project necessary? Ground the reader in the situation before explaining what you did. Two or three sentences is enough.</p>
+    <p class="brief-facts">The existing star charts were drawn from a single vantage point and assumed the observer was stationary. Nobody questioned this until the second telescope went online and the coordinates stopped agreeing. Two instruments, same sky, different answers.</p>
 
-    <p class="brief-facts">Then add a second paragraph with more specifics. What were the constraints? What made this problem hard or interesting? <strong>Bold a sentence that captures the core tension.</strong></p>
+    <p class="brief-facts">The problem was not the instruments. The problem was that every chart encoded the assumption that the observer's position was the origin. When you remove that assumption, the geometry of the entire catalog changes. Quietly. Everywhere at once.</p>
 
     <div class="brief-role">
       <span class="role-label">/ role</span>
       <ul class="role-list">
-        <li>describe your scope and ownership</li>
-        <li>note if this was 0→1 or an iteration</li>
-        <li>mention who you worked with</li>
+        <li>lead cartographer, northern array</li>
+        <li>designed the coordinate reconciliation framework</li>
+        <li>trained six observers on multi-origin notation</li>
       </ul>
     </div>
   </div>
@@ -38,12 +38,12 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 
     <div class="two-col">
       <div class="col">
-        <div class="col-label">/ track one</div>
-        <p>Describe the first workstream or approach. What did you try, build, or change? Be specific about artifacts and decisions.</p>
+        <div class="col-label">/ the re-observation</div>
+        <p>We pointed both telescopes at the same 400 reference objects and logged every discrepancy. The drift was not random. It followed a curve that only appeared when you plotted both datasets on the same axis. The pattern had been there for years, hiding inside the margin of error.</p>
       </div>
       <div class="col">
-        <div class="col-label">/ track two</div>
-        <p>Describe the second workstream. The two-column layout works well for parallel efforts, before/after comparisons, or problem/solution pairs.</p>
+        <div class="col-label">/ the new notation</div>
+        <p>Instead of picking one telescope as "correct," we built a notation that carried both perspectives at once. Any position in the new system includes a reference to the observer who recorded it. The chart doesn't flatten the disagreement. It holds it.</p>
       </div>
     </div>
   </div>
@@ -56,27 +56,27 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 
     <div class="stat-row">
       <div class="stat">
-        <span class="stat-num">42%</span>
-        <span class="stat-label">improvement in key metric</span>
+        <span class="stat-num">2,641</span>
+        <span class="stat-label">objects reconciled across both arrays</span>
       </div>
       <div class="stat">
-        <span class="stat-num">12</span>
-        <span class="stat-label">teams affected</span>
+        <span class="stat-num">0.003°</span>
+        <span class="stat-label">mean positional error after correction</span>
       </div>
       <div class="stat">
-        <span class="stat-num">3mo</span>
-        <span class="stat-label">from kickoff to launch</span>
+        <span class="stat-num">11yr</span>
+        <span class="stat-label">of archived data retroactively corrected</span>
       </div>
     </div>
 
     <div class="problem-points">
       <div class="problem-point problem-point--divided">
-        <span class="problem-label">/ first outcome</span>
-        <p>Explain the result and why it mattered. Connect it back to the problem you described in the brief. Numbers are good but not required -- qualitative shifts count too.</p>
+        <span class="problem-label">/ the catalog</span>
+        <p>The reconciled dataset is now the reference standard for the northern array. Three other observatories adopted the multi-origin notation within the first year, not because we asked them to but because their own data started making more sense when they used it.</p>
       </div>
       <div class="problem-point problem-point--divided">
-        <span class="problem-label">/ second outcome</span>
-        <p>Another result. Did something change about how the team works? Did adoption grow? Did a pattern emerge that outlasted the project?</p>
+        <span class="problem-label">/ what the drift revealed</span>
+        <p>Fourteen objects in the original catalog turned out to be the same seven objects recorded twice from different positions. The duplicates had been treated as separate discoveries for over a decade. Removing them changed the density map of the entire quadrant.</p>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 <section class="cs-section">
   <div class="cs-wrap">
     <h2 class="cs-h2">what I learned</h2>
-    <p class="body-text">Close with a reflection. What would you do differently? What surprised you? What did this project teach you about your craft? This section is what separates a case study from a project summary.</p>
+    <p class="body-text">The hardest part was not building the new system. It was convincing people that the old coordinates were a perspective, not a fact. Once that landed, everything else followed. The notation is just bookkeeping. The shift in how observers think about their own position -- that was the actual deliverable.</p>
   </div>
 </section>
 

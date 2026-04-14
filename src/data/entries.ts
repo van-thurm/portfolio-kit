@@ -15,15 +15,15 @@ export function tagSlug(tag: string): string {
 
 export const entries: DirectoryEntry[] = [
   {
-    title: 'example case study',
+    title: 'the cartography project',
     href: '/example-case-study',
     section: 'case-studies',
     year: 2025,
-    company: 'your company',
+    company: 'parallax lab',
     tags: ['design systems', 'program design'],
   },
   {
-    title: 'example project',
+    title: 'quiet instruments',
     href: '/example-project',
     section: 'side-projects',
     year: 2025,

@@ -5,5 +5,5 @@ export interface WritingEntry {
 }
 
 export const writingEntries: WritingEntry[] = [
-  { title: 'example post title', date: '2025.01.15', url: 'https://example.com/post' },
+  { title: 'on the half-life of visual decisions', date: '2025.03.12', url: 'https://example.com/post' },
 ];

@@ -2,6 +2,20 @@
 
 An AI-native portfolio template. An Astro site paired with Cursor skills and agent context that work together out of the box. Fork it, open it in Cursor, and the AI already knows how the site works, how to write case studies, and how to catch bad copy.
 
+## design
+
+Pixel font headings, light body type, warm accent color, paper-textured background, full dark mode. Restrained on purpose -- the content is the design.
+
+![Home page, dark mode](docs/home-dark.png)
+
+![Home page, light mode](docs/home-light.png)
+
+Case study layout with hero text, tag system, two-column sections, and stat rows:
+
+![Case study hero](docs/case-study-dark.png)
+
+![Case study detail with stats](docs/case-study-detail.png)
+
 ## quickstart
 
 ```bash

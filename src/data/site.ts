@@ -3,13 +3,13 @@
  * Edit this file first; the rest of the site follows.
  */
 export const site = {
-  name: 'your name',
+  name: 'ada kosmik',
   url: 'https://example.com',
-  title: 'your site',
-  description: 'portfolio and selected work',
+  title: 'ada kosmik',
+  description: 'design, research, and things I have built',
 
-  motto: 'your motto goes here.',
-  bio: 'a short bio about yourself and what you do. one or two sentences.',
+  motto: 'to travel beyond the boundary of light is to watch the universe forget its own history.',
+  bio: 'design systems architect and researcher. currently building instruments that measure what the eye skips over.',
 
   social: {
     email: 'hello@example.com',
@@ -18,5 +18,5 @@ export const site = {
     instagram: 'https://instagram.com/yourname',
   },
 
-  footer: 'built by your name',
+  footer: 'built at the edge of the observable',
 };

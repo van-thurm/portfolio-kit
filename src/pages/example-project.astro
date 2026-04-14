@@ -4,26 +4,26 @@ import '../styles/case-study.css';
 import { site } from '../data/site';
 ---
 
-<BaseLayout title={`example project -- ${site.title}`} doodle={false} caseStudy="example project">
+<BaseLayout title={`quiet instruments -- ${site.title}`} doodle={false} caseStudy="quiet instruments">
 
 <header class="page-header">
   <div class="content">
-    <h1 class="cs-title">example project</h1>
+    <h1 class="cs-title">quiet instruments</h1>
   </div>
 </header>
 
 <main>
   <section class="cs-section">
     <div class="content">
-      <p class="body-text">Side projects use BaseLayout directly instead of CaseStudyLayout. The format is shorter and more casual -- a description, some screenshots, and links.</p>
-      <p class="body-text" style="margin-top: var(--sp-snug)">Write a paragraph or two about what this project is and why you made it. What problem does it solve, or what itch does it scratch? Keep it conversational.</p>
+      <p class="body-text">Most measurement tools announce themselves. They beep, they flash, they demand calibration. I wanted to build something that just listened. Quiet instruments is a collection of small programs that sit in the background and record things nobody asked them to: how long a window stays open, how many times a cursor reverses direction, the interval between saves.</p>
+      <p class="body-text" style="margin-top: var(--sp-snug)">None of this data means anything on its own. But after a few weeks, patterns emerge that you can feel but couldn't name. The distance between intention and action has a shape. These instruments draw it.</p>
     </div>
   </section>
 
   <section class="cs-section">
     <div class="content">
       <h2 class="cs-h2">what it does</h2>
-      <p class="body-text">Describe the functionality. What does someone experience when they use it? Be concrete -- "it does X when you Y" is better than "it provides a seamless experience."</p>
+      <p class="body-text">Run <code>qi start</code> and forget about it. It watches your working session and writes a daily log -- plain text, no database, nothing phoning home. After seven days you can run <code>qi reflect</code> and it generates a one-page summary of your rhythms. When you started. When you paused. Where you hesitated. The report is yours and it never leaves your machine.</p>
     </div>
   </section>
 
@@ -33,11 +33,11 @@ import { site } from '../data/site';
       <ul class="project-links">
         <li class="project-link-item">
           <span class="project-link-label">repo</span>
-          <a href="https://github.com/yourname/project" target="_blank" rel="noopener" class="project-link">github.com/yourname/project</a>
+          <a href="https://github.com/yourname/project" target="_blank" rel="noopener" class="project-link">github.com/adakosmik/quiet-instruments</a>
         </li>
         <li class="project-link-item">
-          <span class="project-link-label">live</span>
-          <a href="https://example.com" target="_blank" rel="noopener" class="project-link">example.com</a>
+          <span class="project-link-label">npm</span>
+          <a href="https://example.com" target="_blank" rel="noopener" class="project-link">npmjs.com/package/quiet-instruments</a>
         </li>
       </ul>
     </div>
