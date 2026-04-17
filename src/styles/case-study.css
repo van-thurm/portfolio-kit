@@ -22,7 +22,7 @@
 }
 
 .cs-title {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-weight: 400;
   font-size: var(--type-xl);
   color: var(--ink);
@@ -50,7 +50,7 @@
 }
 
 .cs-tag {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.1em;
   color: var(--muted);
@@ -65,7 +65,7 @@
 }
 
 .cs-tag-more {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.1em;
   color: var(--muted);
@@ -93,7 +93,7 @@
 }
 
 .hero-text {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-hero);
   font-weight: 400;
   color: var(--ink);
@@ -114,7 +114,7 @@
 }
 
 .cs-h2 {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-weight: 400;
   font-size: var(--type-lg);
   color: var(--ink);
@@ -142,7 +142,7 @@
 
 /* ── BRIEF ROLE ── */
 .brief-role {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.1em;
   color: var(--spot);
@@ -187,7 +187,7 @@
 }
 
 .problem-label {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.1em;
   color: var(--spot);
@@ -235,7 +235,7 @@
 .stat:last-child { border-right: none; }
 
 .stat-num {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-xl);
   font-weight: 400;
   color: var(--ink);
@@ -244,7 +244,7 @@
 }
 
 .stat-label {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.1em;
   color: var(--ink);
@@ -263,7 +263,7 @@
 }
 
 .col-label {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.1em;
   color: var(--spot);
@@ -283,7 +283,7 @@
 
 /* ── CS LABEL ── */
 .cs-label {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.12em;
   color: var(--spot);
@@ -293,7 +293,7 @@
 
 /* ── CALLOUT ── */
 .callout {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   color: var(--spot);
 }
 
@@ -344,7 +344,7 @@
 }
 
 .project-link-label {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.08em;
   color: var(--spot);
@@ -437,14 +437,14 @@
 
 /* ── SEQUENTIAL MARKERS ── */
 .seq-num {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.08em;
   color: var(--spot);
 }
 
 .seq-label {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.08em;
   color: var(--spot);
@@ -482,7 +482,7 @@
 }
 
 .step-name {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-base);
   color: var(--ink);
 }
@@ -529,7 +529,7 @@
 }
 
 .touchpoint-name {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.04em;
   color: var(--ink);
@@ -565,7 +565,7 @@
 }
 
 .rollout-name {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-base);
   color: var(--ink);
   margin-bottom: var(--sp-snug);
@@ -587,7 +587,7 @@
 
 /* ── BACK LINK ── */
 .cs-back {
-  font-family: var(--font-pixel);
+  font-family: var(--font-heading);
   font-size: var(--type-sm);
   letter-spacing: 0.08em;
   color: var(--muted);

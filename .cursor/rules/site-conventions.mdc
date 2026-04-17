@@ -53,7 +53,7 @@ src/
 ## Design tokens (from global.css)
 
 Colors: `--paper`, `--ink`, `--spot`, `--muted`, `--border`, `--spot-bg`, `--ink-bg`
-Fonts: `--font-pixel` (GeistPixelLine), `--font-body` (Libre Franklin), `--font-mono`
+Fonts: `--font-heading` (Clash Grotesk), `--font-body` (Libre Franklin), `--font-mono`
 Spacing: `--sp-section` (64px) > `--sp-block` (48px) > `--sp-block-md` (32px) > `--sp-block-sm` (24px) > `--sp-element` (16px) > `--sp-snug` (12px) > `--sp-tight` (8px) > `--sp-micro` (4px)
 Type scale: `--type-hero` (48px) > `--type-xl` (28px) > `--type-lg` (20px) > `--type-base` (14px) > `--type-sm` (12px) > `--type-xs` (10px)
 Content width: `--content-max` (640px)
@@ -63,7 +63,7 @@ Content width: `--content-max` (640px)
 - `.cs-wrap` -- max-width content container (case study pages)
 - `.content` -- max-width content container (project/simple pages)
 - `.cs-section` -- vertical padding block
-- `.cs-h2` -- section heading (pixel font, --type-lg)
+- `.cs-h2` -- section heading (header font, --type-lg)
 - `.cs-tag` -- tag pill
 - `.stat-row` / `.stat` -- metric grid (default 3 columns, use `.stat-row--four` for 4)
 - `.two-col` / `.col` -- side-by-side layout
@@ -73,14 +73,10 @@ Content width: `--content-max` (640px)
 - `.project-links` / `.project-link-item` -- external link list
 - `.inline-link` -- inline text link (spot color)
 - `.body-text` -- standard paragraph
-- `.callout` -- pixel font accent text
+- `.callout` -- header font accent text
 
 ## Naming and tone
 
-- All lowercase. Page titles, headers, section labels, navigation text.
-- No periods in headings or labels.
-- Pixel font (GeistPixelLine) for headings, labels, tags, navigation, and the header name.
-- Body font (Libre Franklin, weight 300) for paragraph text.
 - Direct, conversational tone. No filler words or marketing language.
 - Use the slop-scrub-humanizer skill when writing any prose content.
 
