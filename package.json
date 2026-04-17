@@ -2,7 +2,22 @@
   "name": "portfolio-kit",
   "type": "module",
   "version": "1.0.0",
-  "private": true,
+  "description": "ai-native portfolio template for non-traditional design roles. astro site with bundled cursor skills for case study writing and AI copy auditing.",
+  "license": "MIT",
+  "homepage": "https://van-thurm.github.io/portfolio-kit/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/van-thurm/portfolio-kit.git"
+  },
+  "keywords": [
+    "astro",
+    "portfolio",
+    "theme",
+    "template",
+    "case-study",
+    "design-ops",
+    "static"
+  ],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
