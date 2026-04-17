@@ -119,35 +119,39 @@ const { title = '' } = Astro.props;
 
 </style>
 
-<script>
+<script is:inline data-astro-rerun>
   (function() {
-    const stickyHeader = document.getElementById('site-header');
-    const pageHeader = document.querySelector('.page-header');
-    const stickyTitle = document.getElementById('site-header-title');
-    const stickyToggle = document.getElementById('site-header-toggle');
+    var stickyHeader = document.getElementById('site-header');
+    var pageHeader = document.querySelector('.page-header');
+    var stickyTitle = document.getElementById('site-header-title');
+    var stickyToggle = document.getElementById('site-header-toggle');
 
     function update() {
       if (!stickyHeader) return;
       stickyHeader.classList.toggle('has-border', window.scrollY > 5);
       if (pageHeader) {
-        const threshold = stickyHeader.offsetHeight;
+        var threshold = stickyHeader.offsetHeight;
         stickyHeader.classList.toggle('title-visible', pageHeader.getBoundingClientRect().bottom < threshold);
       }
     }
 
     window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('pageshow', (e) => { if ((e as PageTransitionEvent).persisted) update(); });
+    window.addEventListener('pageshow', function(e) { if (e.persisted) update(); });
     update();
 
-    stickyTitle?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (stickyTitle) {
+      stickyTitle.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
-    stickyToggle?.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
+    if (stickyToggle) {
+      stickyToggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    }
   })();
 </script>
