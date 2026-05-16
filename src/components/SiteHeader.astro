@@ -9,7 +9,17 @@ const { title = '' } = Astro.props;
 
 <header class="site-header" id="site-header">
   <div class="site-header-inner">
-    <a href={import.meta.env.BASE_URL} class="site-header-name">{site.name}</a>
+    <div class="site-header-brand">
+      <a href={import.meta.env.BASE_URL} class="site-header-name">{site.name}</a>
+      <a
+        href={site.templateSource}
+        class="sample-badge"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Get this portfolio template on GitHub (opens in new tab)"
+        title="Get this template on GitHub"
+      >sample</a>
+    </div>
     <div class="site-header-right">
       <span class="site-header-title" id="site-header-title">{title}</span>
       <button class="theme-toggle" id="site-header-toggle" aria-label="Toggle theme">
@@ -45,6 +55,36 @@ const { title = '' } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .site-header-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-tight);
+    min-width: 0;
+  }
+
+  .sample-badge {
+    flex-shrink: 0;
+    font-family: var(--font-heading);
+    font-size: var(--type-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: lowercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px 8px;
+    line-height: 1;
+    background: var(--ink-bg-subtle);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .sample-badge:hover {
+    color: var(--spot);
+    border-color: var(--spot);
+    background: var(--spot-bg-subtle);
   }
 
   .site-header-name {

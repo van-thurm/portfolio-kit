@@ -8,6 +8,9 @@ export const site = {
   title: 'ada kosmik',
   description: 'design, research, and things I have built',
 
+  /** portfolio-kit repo — linked from the header “sample” badge on demo builds */
+  templateSource: 'https://github.com/van-thurm/portfolio-kit',
+
   motto: 'to travel beyond the boundary of light is to watch the universe forget its own history.',
   bio: 'design systems architect and researcher. currently building instruments that measure what the eye skips over.',
 
