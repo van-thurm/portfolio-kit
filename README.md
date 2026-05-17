@@ -134,6 +134,8 @@ export default defineConfig({
 
 display type uses [Clash Grotesk](https://www.fontshare.com/fonts/clash-grotesk) by Indian Type Foundry, distributed free via Fontshare. The woff2 files are self-hosted in `public/fonts/`. body type is Libre Franklin from google fonts.
 
+[more font resources i <3](https://nessy.work/portfolio-kit#type-resources)
+
 ## philosophy
 
 this template and the skills still require good content to get good results and a good portfolio still requires time and care. the site structure handles the architecture so you can focus on the content - don't rush that part! The AI handles the first draft so you can focus on making it **yours.** 
